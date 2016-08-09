@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         db.beginTransaction();
         try {
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 3; i++) {
                 ContentValues values = new ContentValues();
                 values.put(UsersDatabaseHelper.STDT_NAME, NAME + " " + i);
                 values.put(UsersDatabaseHelper.STDT_AGE, AGE + i);
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     public void logInformation(View view) {
         UsersDatabaseHelper usersDatabaseHelper = new UsersDatabaseHelper(getApplicationContext());
 
-        final String POSTS_SELECT_QUERY = "SELECT * FROM users";
+        final String POSTS_SELECT_QUERY = "SELECT * FROM students";
 
         SQLiteDatabase db = usersDatabaseHelper.getWritableDatabase();
         Cursor cursor = db.rawQuery(POSTS_SELECT_QUERY, null);
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     public void fillListView(View view) {
         UsersDatabaseHelper usersDatabaseHelper = new UsersDatabaseHelper(getApplicationContext());
 
-        final String POSTS_SELECT_QUERY = "SELECT * FROM users";
+        final String POSTS_SELECT_QUERY = "SELECT * FROM students";
 
         SQLiteDatabase db = usersDatabaseHelper.getWritableDatabase();
         Cursor cursor = db.rawQuery(POSTS_SELECT_QUERY, null);
